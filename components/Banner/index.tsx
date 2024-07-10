@@ -1,19 +1,34 @@
-'use client'
+"use client";
+
+import Image from "next/image";
+import logo from "../../app/nexuslogo.png";
+import { FaInstagramSquare, FaLinkedin } from "react-icons/fa";
 
 export default function Banner() {
+  const redirectToLinkedIn = () => {
+    window.location.href = "https://www.linkedin.com/company/101440268/";
+  };
+
+  const redirectToInstagram = () => {
+    window.location.href = "https://www.instagram.com/nexus_software/";
+  };
+
   return (
-    <div className="bgcustom flex justify-center items-center h-[45rem] min-h-full min-w-full text-[white] flex-col overflow-hidden">
-      <h1 className="text-[60px] font-bold">The Nexus</h1>
-      <h2 className="text-[60px] font-bold">will take you to the next level</h2>
-      <p className="text-[35px] font-custom">We turn yours into reality</p>
-      <div
-        className="
-       bg-black text-[white] rounded-[6rem] w-[20rem] 
-       h-[3rem] mt-[4rem] flex items-center justify-center 
-       hover:bg-gray-900 hover:transition-duration-1000 cursor-pointer"
-      >
-        <button className="">Discover our services</button>
+    <div className="bgcustom flex justify-center items-center h-[100vh] min-h-full min-w-full text-[white] gap-10 flex-col overflow-hidden">
+      <Image src={logo} width={150} alt="" quality={100} />
+
+      <div className="flex justify-center items-center flex-col">
+        <h2 className="text-[20px] font-bold">Nosso site está em manutenção</h2>
+        <p className="text-[15px] font-custom">Voltamos em breve!</p>
+      </div>
+      <div className="flex justify-center items-center gap-4">
+        <div onClick={redirectToLinkedIn} className="cursor-pointer">
+          <FaLinkedin size={40} fill="white" />
+        </div>
+        <div onClick={redirectToInstagram} className="cursor-pointer">
+          <FaInstagramSquare size={40} fill="white" />
+        </div>
       </div>
     </div>
-  )
+  );
 }
